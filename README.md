@@ -12,6 +12,7 @@
 + 工具类介绍:
 
     + [AES](src/main/java/org/jzp/code/common/component/util/AesUtil.java): AES工具；
+    + [MD5](src/main/java/org/jzp/code/common/component/util/MD5Util.java): MD5工具；
     + [Check](src/main/java/org/jzp/code/common/component/util/CheckUtil.java): 参数校验工具；
     + [Date](src/main/java/org/jzp/code/common/component/util/DateUtil.java): 日期工具；
     + [Digit](src/main/java/org/jzp/code/common/component/util/DigitUtil.java): 运算工具；
