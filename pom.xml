@@ -2,18 +2,44 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
     <artifactId>common-component</artifactId>
     <version>1.0.0</version>
 
+    <packaging>jar</packaging>
+
     <properties>
         <spring.version>4.1.6.RELEASE</spring.version>
     </properties>
 
-    <dependencies>
+    <name>common-component</name>
+    <description>公用组件</description>
+    <url>https://github.com/jzpyoung</url>
 
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>jiazhipeng</name>
+            <email>jzpyoung@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:jzpyoung/common-component.git</connection>
+        <developerConnection>scm:git:git@github.com:jzpyoung/common-component.git</developerConnection>
+        <url>git@github.com:jzpyoung/common-component.git</url>
+    </scm>
+
+    <dependencies>
         <!-- gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
