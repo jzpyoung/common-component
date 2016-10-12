@@ -14,7 +14,7 @@ import java.security.SecureRandom;
  * @version 1.0
  * @date 2016-09-27
  */
-public class AesUtil {
+public class AESUtil {
 
     // KeyGenerator
     private static KeyGenerator kgen;
