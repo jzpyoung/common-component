@@ -20,4 +20,7 @@ public class Constants {
 
     // 逗号分隔符
     public static final String SPLITSTR = ",";
+
+    // 空字符
+    public static final char EMPTYCHAR = ' ';
 }
