@@ -24,15 +24,15 @@ public class CheckUtil {
      * @return
      * @throws BizException
      */
-    public static final boolean isBlank4MulField(String str, String splitStr, Logger logger, Object... objs) throws BizException {
+    public static final void isBlank4MulField(String str, String splitStr, Logger logger, Object... objs) throws BizException {
         if (objs == null || objs.length < 1) {
-            return false;
+            throw new BizException(BizCode.BIZ_CHECK_PARAM_IS_NULL.getValue(), "param is null!");
         }
 
         String[] fieldArray = str.split(splitStr);
         if (fieldArray.length != objs.length) {
             logger.error("组件配置错误");
-            return false;
+            throw new BizException(BizCode.BIZ_REGEX_MATCH_NUM_NOT_EQUAL_EXCEPTION.getValue(), "组件配置错误!");
         }
 
         for (int i = 0; i < objs.length; i++) {
@@ -41,6 +41,5 @@ public class CheckUtil {
                 throw new BizException(BizCode.BIZ_CHECK_PARAM_IS_NULL.getValue(), fieldArray[i] + " is blank!");
             }
         }
-        return true;
     }
 }
