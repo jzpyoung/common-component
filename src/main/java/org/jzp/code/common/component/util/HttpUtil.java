@@ -1,7 +1,7 @@
 package org.jzp.code.common.component.util;
 
 import com.sun.deploy.net.HttpUtils;
-import org.jzp.code.common.component.code.BizCode;
+import org.jzp.code.common.component.data.BizCode;
 import org.jzp.code.common.component.constant.Constants;
 import org.jzp.code.common.component.exception.BizException;
 import org.slf4j.Logger;

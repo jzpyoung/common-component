@@ -1,7 +1,7 @@
-package org.jzp.code.common.component.code;
+package org.jzp.code.common.component.data;
 
 /**
- * 返回码枚举
+ * 业务返回码枚举
  *
  * @author jiazhipeng
  * @version 1.0

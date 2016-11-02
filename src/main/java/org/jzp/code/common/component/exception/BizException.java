@@ -1,6 +1,6 @@
 package org.jzp.code.common.component.exception;
 
-import org.jzp.code.common.component.code.BizCode;
+import org.jzp.code.common.component.data.BizCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

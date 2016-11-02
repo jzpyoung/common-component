@@ -22,6 +22,7 @@
     + [Reflect](src/main/java/org/jzp/code/common/component/util/ReflectUtil.java): 反射工具；
     + [Regex](src/main/java/org/jzp/code/common/component/util/RegexUtil.java): 正则工具；
     + [String](src/main/java/org/jzp/code/common/component/util/StringUtil.java): 字符串工具；
+    + [Result](src/main/java/org/jzp/code/common/component/util/ResultUtil.java): 返回结果处理工具；
     
 + 历史版本:
 
