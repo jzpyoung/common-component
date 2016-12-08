@@ -11,97 +11,97 @@ import java.io.Serializable;
  */
 public class Message<D> implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 结果。
-	 */
-	private Result result;
-	
-	/**
-	 * 编码(可表示错误码等)。
-	 */
-	private int code;
-	
-	/**
-	 * 错误信息编码(可表示错误码等)。
-	 */
-	private String message;
-	
-	/**
-	 * 数据。
-	 */
-	private D data;
-	
-	public String getMessage() {
-		return message;
-	}
+    /**
+     * 结果。
+     */
+    private Result result;
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    /**
+     * 编码(可表示错误码等)。
+     */
+    private int code;
 
-	public Message() {
-	}
-	
-	public Message(Result result, int code) {
-		super();
-		this.result = result;
-		this.code = code;
-	}
-	
-	public Message(Result result, Integer code, String message) {
-		super();
-		this.result = result;
-		this.code = code;
-		this.message = message;
-	}
-	
-	public Message(Result result, int code, String message, D data) {
-		super();
-		this.result = result;
-		this.code = code;
-		this.message = message;
-		this.data = data;
-	}
+    /**
+     * 错误信息编码(可表示错误码等)。
+     */
+    private String message;
 
-	public Message(Result result, D data) {
-		super();
-		this.result = result;
-		this.data = data;
-	}
+    /**
+     * 数据。
+     */
+    private D data;
 
-	public Message(Result result, int code, D data) {
-		super();
-		this.result = result;
-		this.code = code;
-		this.data = data;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public Result getResult() {
-		return result;
-	}
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-	public void setResult(Result result) {
-		this.result = result;
-	}
+    public Message() {
+    }
 
-	public int getCode() {
-		return code;
-	}
+    public Message(Result result, int code) {
+        super();
+        this.result = result;
+        this.code = code;
+    }
 
-	public void setCode(int code) {
-		this.code = code;
-	}
+    public Message(Result result, Integer code, String message) {
+        super();
+        this.result = result;
+        this.code = code;
+        this.message = message;
+    }
 
-	public D getData() {
-		return data;
-	}
+    public Message(Result result, int code, String message, D data) {
+        super();
+        this.result = result;
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
 
-	public void setData(D data) {
-		this.data = data;
-	}
+    public Message(Result result, D data) {
+        super();
+        this.result = result;
+        this.data = data;
+    }
+
+    public Message(Result result, int code, D data) {
+        super();
+        this.result = result;
+        this.code = code;
+        this.data = data;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public D getData() {
+        return data;
+    }
+
+    public void setData(D data) {
+        this.data = data;
+    }
 }
