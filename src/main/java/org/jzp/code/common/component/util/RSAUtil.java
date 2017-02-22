@@ -56,7 +56,7 @@ public class RSAUtil {
             RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
             // get private key
             RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
-            Map<String, Object> keyMap = new HashMap<>(2);
+            Map<String, Object> keyMap = new HashMap<String, Object>(2);
             keyMap.put(PUBLIC_KEY, publicKey);
             keyMap.put(PRIVATE_KEY, privateKey);
             return keyMap;

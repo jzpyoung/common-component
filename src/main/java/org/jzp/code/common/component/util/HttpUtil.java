@@ -43,7 +43,7 @@ public class HttpUtil {
     }
 
     public static <T> T getPostRequestResult(String url, Map<String, String> params, Class<T> responseType) {
-        MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
+        MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<String, String>();
         for (Map.Entry<String, String> m : params.entrySet()) {
             multiValueMap.set(m.getKey(), m.getValue());
         }

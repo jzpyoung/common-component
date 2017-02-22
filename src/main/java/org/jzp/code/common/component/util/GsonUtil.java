@@ -68,7 +68,7 @@ public class GsonUtil {
     public static <T> List<T> fromJson2List(String json, Class<T> cls) {
         if (json == null || "".equals(json)) return null;
 
-        List<T> lst = new ArrayList<>();
+        List<T> lst = new ArrayList<T>();
 
         JsonArray array = new JsonParser().parse(json).getAsJsonArray();
         for (final JsonElement elem : array) {
