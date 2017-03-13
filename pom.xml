@@ -68,6 +68,14 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- joda -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.7</version>
+        </dependency>
+
+
         <!-- LOG库 -->
         <dependency>
             <groupId>org.slf4j</groupId>

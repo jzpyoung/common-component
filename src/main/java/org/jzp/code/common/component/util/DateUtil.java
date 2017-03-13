@@ -1,5 +1,7 @@
 package org.jzp.code.common.component.util;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.jzp.code.common.component.enums.CaculateDateEnum;
 
 import java.text.ParseException;
@@ -119,7 +121,7 @@ public class DateUtil {
      * @param day2
      * @return $运算结果
      */
-    public static Long calDateIntervalHour(Date day1, Date day2) {
+    public static Long calDateIntervalHours(Date day1, Date day2) {
         Long intervalLong = calDateIntervalLong(day1, day2);
         return intervalLong / (1000 * 60 * 60);
     }
@@ -133,6 +135,40 @@ public class DateUtil {
      */
     public static Long calDateIntervalLong(Date day1, Date day2) {
         return day2.getTime() - day1.getTime();
+    }
+
+    /**
+     * 判断两个日期相差的天数
+     * 即使两个日期不属于同一年也可以计算正确
+     *
+     * @param day1
+     * @param day2
+     * @return $运算结果
+     */
+    public static Integer calDateIntervalDays(Date day1, Date day2) {
+        if (day1 == null || day2 == null) {
+            return null;
+        }
+
+        //- 去掉时分秒信息
+        Calendar f = Calendar.getInstance();
+        f.setTime(day1);
+        f.set(Calendar.HOUR_OF_DAY, 0);
+        f.set(Calendar.MINUTE, 0);
+        f.set(Calendar.SECOND, 0);
+        f.set(Calendar.MILLISECOND, 0);
+
+        Calendar o = Calendar.getInstance();
+        o.setTime(day2);
+        o.set(Calendar.HOUR_OF_DAY, 0);
+        o.set(Calendar.MINUTE, 0);
+        o.set(Calendar.SECOND, 0);
+        o.set(Calendar.MILLISECOND, 0);
+
+        DateTime date1 = new DateTime(f);
+        DateTime date2 = new DateTime(o);
+        Days days = Days.daysBetween(date1, date2);
+        return days.getDays();
     }
 
     /**
