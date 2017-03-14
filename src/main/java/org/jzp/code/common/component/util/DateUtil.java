@@ -115,6 +115,17 @@ public class DateUtil {
     }
 
     /**
+     * 计算两个date类型之间的差值(毫秒)
+     *
+     * @param day1
+     * @param day2
+     * @return $运算结果
+     */
+    public static Long calDateIntervalLong(Date day1, Date day2) {
+        return day2.getTime() - day1.getTime();
+    }
+
+    /**
      * 计算两个date类型之间的差值(小时)
      *
      * @param day1
@@ -127,18 +138,7 @@ public class DateUtil {
     }
 
     /**
-     * 计算两个date类型之间的差值(毫秒)
-     *
-     * @param day1
-     * @param day2
-     * @return $运算结果
-     */
-    public static Long calDateIntervalLong(Date day1, Date day2) {
-        return day2.getTime() - day1.getTime();
-    }
-
-    /**
-     * 判断两个日期相差的天数
+     * 计算两个date类型之间的差值(天数)
      * 即使两个日期不属于同一年也可以计算正确
      *
      * @param day1
