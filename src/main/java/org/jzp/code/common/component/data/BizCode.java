@@ -13,7 +13,9 @@ public enum BizCode {
 
     BIZ_REGEX_MATCH_NUM_NOT_EQUAL_EXCEPTION(1001, "待替换字符串和传入替换字符串个数不相等"),
 
-    BIZ_HTTP_PARAM_ASSEMBLY_EXCEPTION(1002, "HTTP参数组装错误");
+    BIZ_HTTP_PARAM_ASSEMBLY_EXCEPTION(1002, "HTTP参数组装错误"),
+
+    BIZ_REGEX_PHONE_FORMAT_EXCEPTION(1003,"手机号格式不匹配");
 
     private int value;
     private String message;

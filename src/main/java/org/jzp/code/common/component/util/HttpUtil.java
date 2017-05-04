@@ -63,7 +63,7 @@ public class HttpUtil {
             return getGetRequestResult(url, responseType);
         }
 
-        String[] fieldArray = str.split(Constants.SPLITSTR);
+        String[] fieldArray = str.split(Constants.SPLIT_STR);
 
         if (fieldArray.length != replacements.length) {
             logger.error(BizCode.BIZ_HTTP_PARAM_ASSEMBLY_EXCEPTION.getMessage());

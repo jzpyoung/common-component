@@ -16,6 +16,36 @@ import java.util.regex.Pattern;
 public class RegexUtil {
 
     /**
+     * 是否匹配
+     *
+     * @param str   待匹配字符串
+     * @param regex 正则匹配字符串
+     * @return count 匹配个数
+     */
+    public static boolean isMatch(String str, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(str);
+        return matcher.matches();
+    }
+
+    /**
+     * 获取匹配个数
+     *
+     * @param str   待匹配字符串
+     * @param regex 正则匹配字符串
+     * @return count 匹配个数
+     */
+    public static int matchCount(String str, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(str);
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+        return count;
+    }
+
+    /**
      * 匹配替换
      *
      * @param oldStr   待匹配字符串
@@ -44,22 +74,5 @@ public class RegexUtil {
 
         matcher.appendTail(result);
         return result.toString();
-    }
-
-    /**
-     * 获取匹配个数
-     *
-     * @param str   待匹配字符串
-     * @param regex 正则匹配字符串
-     * @return count 匹配个数
-     */
-    public static int matchCount(String str, String regex) {
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(str);
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
-        return count;
     }
 }

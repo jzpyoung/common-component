@@ -9,6 +9,27 @@ package org.jzp.code.common.component.constant;
  */
 public class Constants {
 
+    // 银行卡号最少的位数
+    public static final int MIN_CARD_DIGITS = 16;
+
+    // 身份证号最少的位数
+    public static final int MIN_ID_CARD_DIGITS = 15;
+
+    // 真实姓名最少的位数
+    public static final int MIN_TRUE_NAME_DIGITS = 2;
+
+    // 二进制位数
+    public static final int BINARY_BITS = 64;
+
+    // 空字符
+    public static final char EMPTY_CHAR = ' ';
+
+    // 空替换字符串
+    public static final char EMPTY_REPLACE_CHAR = '0';
+
+    // 邮件分隔符
+    public static final char EMAIL_SEPARATOR = '@';
+
     // AES
     public static final String AES = "AES";
 
@@ -19,8 +40,20 @@ public class Constants {
     public static final String CIPHER = "AES/ECB/PKCS5Padding";
 
     // 逗号分隔符
-    public static final String SPLITSTR = ",";
+    public static final String SPLIT_STR = ",";
 
-    // 空字符
-    public static final char EMPTYCHAR = ' ';
+    // 空字符串
+    public static final String EMPTY_STR = "";
+
+    // 手机号正则匹配公式
+    public static final String PHONE_REGEX = "^1\\d{10}$";
+
+    // *
+    public static final String STAR_STR = "*";
+
+    // ***
+    public static final String THREE_STAR_STR = "***";
+
+    // ****
+    public static final String FOUR_STAR_STR = "****";
 }
