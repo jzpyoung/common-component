@@ -29,8 +29,8 @@ public class OcclusionUtil {
      * <br>@前位数<3,第一位 + "***" + @后面的</br>
      *
      * @param email
-     * @return input:abc@baidu.com output:a***@baidu.com
-     * input:abcd@baidu.com output:ab***d@baidu.com
+     * @return input:abc@jzp.com output:a***@jzp.com
+     * input:abcd@jzp.com output:ab***d@jzp.com
      */
     public static String occlusionEmail(String email) {
         if (StringUtil.isEmpty(email)) {
