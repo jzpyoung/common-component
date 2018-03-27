@@ -5,7 +5,7 @@
     <dependency>
         <groupId>org.jzp.code</groupId>
         <artifactId>common-component</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </dependency>
     ```
     
@@ -37,4 +37,8 @@
 	+ 1.0.0:
 		
 		+ 基本功能实现。
+		
+	+ 1.0.1:
+        		
+        + 增加excel、邮件、拼音、排序工具支持。
 

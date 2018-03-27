@@ -62,7 +62,7 @@ public class SortUtil {
             }
         }
 
-        // 首字母排序每个分组的学生信息
+        // 首字母排序每个分组的用户信息
         for (Map.Entry<String, List<SortVO>> m : map.entrySet()) {
             Collections.sort(m.getValue(), new Comparator<SortVO>() {
                 public int compare(SortVO o1, SortVO o2) {
