@@ -56,4 +56,14 @@ public class Constants {
 
     // ****
     public static final String FOUR_STAR_STR = "****";
+
+    // email
+    public static class SEND_EMAIL {
+        public static final String HOST = "mail.***.com.cn";
+        public static final Integer PORT = 25;
+        public static final String USERNAME = "619393827@qq.com";
+        public static final String PASSWORD = "******";
+        public static final String EMAILFROM = "619393827@qq.com";
+        public static final String SYSTEM = "邮件平台";
+    }
 }
