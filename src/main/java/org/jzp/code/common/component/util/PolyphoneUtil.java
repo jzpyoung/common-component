@@ -11,6 +11,8 @@ public class PolyphoneUtil {
             return "shan";
         } else if ('曾' == surname) {
             return "zeng";
+        } else if ('灜' == surname) {
+            return "ying";
         }
         return null;
     }

@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.xssf.usermodel.*;
 import org.jzp.code.common.component.constant.DateConstants;
+import org.jzp.code.common.component.vo.ExcelSheetVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
@@ -32,17 +33,15 @@ public class ExcelUtil {
         return new ExcelUtil();
     }
 
-
     /**
-     * 导出excel 单sheet
+     * 导出excel
      *
-     * @param headKeys      表头
      * @param excelFileName
-     * @param list
+     * @param excelSheetDTOS
      * @param realPath
      * @throws Exception
      */
-    public static <T> void exportExcel(Map<String, String> headKeys, String excelFileName, List<T> list, String realPath) throws Exception {
+    public static void exportExcel(String excelFileName, List<ExcelSheetVO> excelSheetDTOS, String realPath) throws Exception {
         FileOutputStream outputStream = null;
         try {
             File targetFile = new File(realPath);
@@ -50,7 +49,7 @@ public class ExcelUtil {
                 targetFile.mkdirs();
             }
             outputStream = new FileOutputStream(targetFile + File.separator + excelFileName);
-            createWorkBook(list, headKeys).write(outputStream);
+            createWorkBook(excelSheetDTOS).write(outputStream);
         } catch (Exception e) {
             logger.info("导出excel文件异常，文件={}", excelFileName);
             logger.info("导出excel文件异常", e);
@@ -63,78 +62,34 @@ public class ExcelUtil {
     }
 
     /**
-     * 导出excel 多sheet
+     * 创建WorkBook
      *
-     * @param headKeys
-     * @param excelFileName
-     * @param list
-     * @param realPath
-     * @param sheetNum
-     * @param <T>
-     * @throws Exception
-     */
-    public static <T> void exportExcel(List<Map<String, String>> headKeys, String excelFileName, List<List<T>> list, String realPath, int sheetNum) throws Exception {
-        FileOutputStream outputStream = null;
-        if (CollectionUtils.isEmpty(headKeys)) {
-            throw new RuntimeException("excel文件表头为空");
-        }
-        if (CollectionUtils.isEmpty(list)) {
-            throw new RuntimeException("excel文件数据为空");
-        }
-        try {
-            File targetFile = new File(realPath);
-            if (!targetFile.exists()) {
-                targetFile.mkdirs();
-            }
-            outputStream = new FileOutputStream(targetFile + File.separator + excelFileName);
-            createWorkBook(list, headKeys, sheetNum).write(outputStream);
-        } catch (Exception e) {
-            logger.info("导出excel文件异常，文件={}", excelFileName);
-            logger.info("导出excel文件异常", e);
-            throw new RuntimeException("导出excel文件异常");
-        } finally {
-            if (outputStream != null) {
-                outputStream.close();
-            }
-        }
-    }
-
-    /**
-     * 创建单sheet WorkBook
-     *
-     * @param dataList
-     * @param headKeys
+     * @param excelSheetDTOS
      * @param <T>
      * @return
      * @throws Exception
      */
-    public static <T> XSSFWorkbook createWorkBook(List<T> dataList, Map<String, String> headKeys) throws Exception {
-        // 创建excel工作簿
-        XSSFWorkbook wb = new XSSFWorkbook();
-        createSheet(dataList, headKeys, wb, "sheet1");
-
-        return wb;
-    }
-
-    /**
-     * 创建多sheet WorkBook
-     *
-     * @param dataList
-     * @param headKeys
-     * @param sheetNum
-     * @param <T>
-     * @return
-     * @throws Exception
-     */
-    public static <T> XSSFWorkbook createWorkBook(List<List<T>> dataList, List<Map<String, String>> headKeys, int sheetNum) throws Exception {
+    public static <T> XSSFWorkbook createWorkBook(List<ExcelSheetVO> excelSheetDTOS) {
         // 创建excel工作簿
         XSSFWorkbook wb = new XSSFWorkbook();
 
-        for (int i = 0; i < sheetNum; i++) {
+        ExcelSheetVO excelSheetDTO;
+        for (int i = 0; i < excelSheetDTOS.size(); i++) {
             try {
-                createSheet(dataList.get(i), headKeys.get(i), wb, "sheet" + i);
+                excelSheetDTO = excelSheetDTOS.get(i);
+                if (excelSheetDTO == null) {
+                    throw new RuntimeException("excel第" + i + "个sheet页为空");
+                }
+                if (CollectionUtils.isEmpty(excelSheetDTO.getHeadKeys())) {
+                    throw new RuntimeException("excel第" + i + "个sheet页表头为空");
+                }
+                if (CollectionUtils.isEmpty(excelSheetDTO.getDatas())) {
+                    throw new RuntimeException("excel第" + i + "个sheet页数据为空");
+                }
+
+                createSheet(excelSheetDTO.getDatas(), excelSheetDTO.getHeadKeys(), wb, excelSheetDTO.getSheetName());
             } catch (Exception e) {
-                logger.info("导出excel第" + i + "个sheet页异常,e:{}", e);
+                logger.info("导出excel第" + i + "个sheet页异常,e:{}", e.getMessage());
             }
         }
 
